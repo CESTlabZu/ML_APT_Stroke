@@ -11,8 +11,8 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
 
-
-index = [1,10,12,13,14,25,38,44,51,54,64]
+# Load offsets selected from RFE_optimization.py
+# index = [1,10,12,13,14,25,38,44,51,54,64]
 
 '''
 Please delete following lines of code for X_train and Y before training
