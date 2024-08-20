@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Simulation Codes for Machine Learning based APT imaging using partially
+% Simulation Codes for Machine Learning based APT imaging using fully
 % synthetic data
 % Please uncomment required lines of text
 %
