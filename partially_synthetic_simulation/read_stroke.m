@@ -138,7 +138,7 @@ for ii_T1W=1:num_T1W
  SS_cal_value_ref_t=R1W_cal_obs_t./(cal_eff_cal_t+0./(1+fm_cal*fm_l)+cal_Lorentzian2_t_cal./(1+fm_cal*fm_l)+cal_Lorentzian5_cal./(1+fm_cal*fm_l)+cal_Lorentzian6_t_cal).*(((B0_shift)*2*pi).^2./((tt_shift.*42.6*2*pi).^2+((B0_shift)*2*pi).^2));
 
 
- % inverse summation to create Z spectra with inhomogeneities
+ % inverse summation to create Z spectra without inhomogeneities
  sscal_n_1 = R1W_cal_obs_n./(cal_eff_cal_n_1+cal_Lorentzian1_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian2_n_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian5_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian6_n_cal_1).*(((k_7pT(3,:))*2*pi).^2./((tt(3).*42.6*2*pi).^2+((k_7pT(3,:))*2*pi).^2));
  SS_cal_n_1(:, ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk)=R1W_cal_obs_n./(cal_eff_cal_n_1+cal_Lorentzian1_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian2_n_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian5_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian6_n_cal_1).*(((k_7pT(3,:))*2*pi).^2./((tt(3).*42.6*2*pi).^2+((k_7pT(3,:))*2*pi).^2));
  SS_cal_value_ref_n_1=R1W_cal_obs_n./(cal_eff_cal_n_1+0./(1+fm_cal*fm_n)+cal_Lorentzian2_n_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian5_cal_1./(1+fm_cal*fm_n)+cal_Lorentzian6_n_cal_1).*(((k_7pT(3,:))*2*pi).^2./((tt(3).*42.6*2*pi).^2+((k_7pT(3,:))*2*pi).^2));
