@@ -133,13 +133,13 @@ for ii_T1W=1:num_T1W
 
  %CESTR
  mtr =(1-sscal_1) - (1-SS_cal_value_ref_1);
- mtr_amp(1,i) = mtr(1,14);
- mtr_width(1,i)= fwhm(mtr,k_7pT(3,:));
+ mtr_amp(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk) = mtr(1,14);
+ mtr_width(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk)= fwhm(mtr,k_7pT(3,:));
 
  % AREX
  arex=((1./sscal_1) - (1./SS_cal_value_ref_1)).*(R1W_cal_obs).*(1+(fm_cal*fm));
- arex_amp(1,i) = arex(1,14); % amplitude
- arex_width(1,i)= fwhm(arex,k_7pT(3,:)); %width
+ arex_amp(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk) = arex(1,14); % amplitude
+ arex_width(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk)= fwhm(arex,k_7pT(3,:)); %width
 
  i = i+1;
 
