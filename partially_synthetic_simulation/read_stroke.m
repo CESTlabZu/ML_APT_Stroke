@@ -166,12 +166,12 @@ for ii_T1W=1:num_T1W
 
  % AREX
  arex_n=((1./sscal_n_1) - (1./SS_cal_value_ref_n_1)).*(R1W_cal_obs_n).*(1+(fm_cal*fm_n));
- arex_amp_n(1,i) = arex_n(1,14); % amplitude
- arex_width_n(1,i)= fwhm(arex_n,k_7pT(3,:)); %width
+ arex_amp_n(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk) = arex_n(1,14); % amplitude
+ arex_width_n(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk)= fwhm(arex_n,k_7pT(3,:)); %width
 
  arex_t=((1./sscal_t_1) - (1./SS_cal_value_ref_t_1)).*(R1W_cal_obs_t).*(1+(fm_cal*fm_l));
- arex_amp_t(1,i) = arex_t(1,14);
- arex_width_t(1,i)= fwhm(arex_t,k_7pT(3,:));
+ arex_amp_t(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk) = arex_t(1,14);
+ arex_width_t(ii_T1W,ii_T2W,ii_T2S, ii_fs1, ii_fs2, ii_fs5, ii_fm, ii_ksw1,ii_tt,ii_kk)= fwhm(arex_t,k_7pT(3,:));
 
  i = i+1;
 
