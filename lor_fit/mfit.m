@@ -1,7 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Simulation Codes for Machine Learning based APT imaging using partially
-% synthetic data from tissue mimicking data
+% Multiple pool model Lorentzian fit for Machine Learning based APT imaging
 % Please uncomment required lines of text
 %
 % Authors: Malvika Viswanathan, Zhongliang Zu
