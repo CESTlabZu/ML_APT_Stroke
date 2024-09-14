@@ -6,7 +6,7 @@ function vals = pulsesolv1(w1, dw, ksw1,ksw2,ksw3,ksw4, ksw5,kmw, mnots1,mnots2,
     fs5=mnots5/mnotw;
     fm=mnotm/mnotw;
     
-    delter=2.3*400*2*pi;
+    delter=2.3*300*2*pi;
     %ls=1./(pi*R2M)./(1+((dw-delter)./R2M).^2);
     %W=w1^2*sqrt(pi/2)/R2M*exp(-((dw-delter)/R2M)^2/2);
 
