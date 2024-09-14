@@ -1,54 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Simulation Codes for Machine Learning based APT imaging using partially
+% synthetic data from tissue mimicking data
+% Please uncomment required lines of text
+%
+% Authors: Malvika Viswanathan, Zhongliang Zu
+%
+% Correspondance: zhongliang.zu@vumc.org 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear;
-load('testing_data_tm3.mat','matrix_input_all','R1W_cal_matrix_output_all','fm_cal_matrix_output_all')
-tt_7pT=1.0;
-tt_test = [0.9, 0.95, 1, 1.05, 1.1];
-pulseduration=5;
+% load CEST Z spectrum, R1W and fm values from simulations or measured
+% data.
+% load('...')
 
-exciteduration=0.002;
-exciteangle=90;
-
-gauss=100;
-
-TR=0.02;
-offppm= 300; 
-
+% required initial parameters
 max=1500;
 step=50;
-sep1_7pT=3.6*offppm;
-sep2_7pT=3*offppm;
-sep3_7pT=2*offppm
-sep4_7pT=-1.6*offppm;
-sep5_7pT=-3.3*offppm;
-
-
-% relaxations
-R1S=1/1.5;
-R2S1=1/0.002;
-R2S2=1/0.01;
-R2S3=1/0.01;
-R2S4=1/0.001;
-R2S5=1/0.0005;
-R1M=1/1.5;
-R2M=1/0.00005;
-
-
 offset= -max:step:max;
 k_7pT=[-4000, -3500, -3000, -2500, offset, 2500, 3000,3500,4000];
 k_7pT=k_7pT';
-k = [-4000, -3500, -3000, -2500, offset, 2500, 3000,3500,4000];
-k_7pT_test = [k-40;k-20;k;k+20;k+40]';
-satangle=tt_7pT*42.6*360*pulseduration;
-satangle_test = tt_test*42.6*360*pulseduration;
 
-%index = [1,10,12,13,14,25,29,33,36,38,44,51,54,64]+1;
-% index = [1,6,8,9,10,11,12,13,14,15,20,22,38,48,51,64,65,66]+1;
-% index = [3 ,8, 11, 12, 13, 14, 15, 21, 22, 49, 52, 65]+1;
-index = [1, 11, 12, 13, 14, 22, 23, 29, 33, 38, 53, 54, 55]+1;
  for i=1:length(matrix_input_all)
 
-    sig=(1-matrix_input_all(index,i));
-    R1W_AREX=R1W_cal_matrix_output_all(i);
-    fm_AREX=fm_cal_matrix_output_all(i);
+    sig=(1-matrix_input_all(:,i)); 
+    R1W_AREX=R1W_cal_matrix_output_all(i); % loaded R1W values
+    fm_AREX=fm_cal_matrix_output_all(i); % loaded PSR values
    
     x =k_7pT(index);
     beta0= [0.9, 0, 420,           0.025, -1050, 150,       0.01, -600, 450,         0.001, 450, 300,         0.02, 1050, 900,       0.1, 0, 7500]; % initial test
@@ -71,6 +48,7 @@ index = [1, 11, 12, 13, 14, 22, 23, 29, 33, 38, 53, 54, 55]+1;
 
     beta_amide(4)=0;
     sig_simur_ref_amide=matsolv(beta_amide,x,Delta);
+    % save required values!
     mor_MTR_amide(:,i)=(sig_simur_amide-sig_simur_ref_amide);
     mor_AREX_amide(:,i)=(1./(1-sig_simur_amide)-1./(1-sig_simur_ref_amide))*R1W_AREX*(1+fm_AREX);
     
@@ -110,9 +88,9 @@ index = [1, 11, 12, 13, 14, 22, 23, 29, 33, 38, 53, 54, 55]+1;
     
     mor_NOE1p6=(1./(1-sig_simur_NOE1p6)-1./(1-sig_simur_ref_NOE1p6))*R1W_AREX*(1+fm_AREX);
     mor_dir_NOE1p6=(sig_simur_NOE1p6-sig_simur_ref_NOE1p6);
-
-
    
     sprintf("----------------------- %d",i)
         
  end
+
+ 
