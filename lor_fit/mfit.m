@@ -26,7 +26,7 @@ k_7pT=k_7pT';
     R1W_AREX=R1W_cal_matrix_output_all(i); % loaded R1W values
     fm_AREX=fm_cal_matrix_output_all(i); % loaded PSR values
    
-    x =k_7pT(index);
+    x =k_7pT;
     beta0= [0.9, 0, 420,           0.025, -1050, 150,       0.01, -600, 450,         0.001, 450, 300,         0.02, 1050, 900,       0.1, 0, 7500]; % initial test
     lb=[  0.02, -300, 30,          0, -1200,120,       0, -900, 150,            0, 300, 0,           0, 750, 300,           0, -1200, 3000]; % lower bound
     ub=[ 1, 300,   3000,      0.2, -900, 900,         0.2,-300, 1500,          0.2, 600.001, 450,       1, 1350, 1500,         1, 1200, 30000]; % upper bound
